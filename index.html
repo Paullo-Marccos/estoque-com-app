@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Estoque da Loja de Construção</title>
+<meta name="author" content="Paulo Marcos">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#e07b00">
+<link rel="icon" href="icones/icone-192.png">
+<link rel="apple-touch-icon" href="icones/icone-192.png">
+<link rel="stylesheet" href="css/css.css">
+</head>
+<body>
+<!-- Marca d'água: texto fraquinho repetido sobre a página -->
+<div class="marca-dagua"></div>
+
+<div class="pagina">
+  <h1>📦 Estoque da Loja</h1>
+  <p class="sub">Cadastre os produtos, dê entrada e saída e veja o que está acabando.</p>
+
+  <!-- Resumo -->
+  <div class="resumo">
+    <div class="caixa"><small>Produtos</small><strong id="totalProdutos">0</strong></div>
+    <div class="caixa"><small>Estoque baixo</small><strong id="totalBaixo">0</strong></div>
+    <div class="caixa"><small>Valor em estoque</small><strong id="totalValor">R$ 0,00</strong></div>
+  </div>
+
+  <button class="principal" style="width:100%;font-size:18px;padding:14px;margin-bottom:12px" onclick="novoProduto()">➕ Adicionar produto</button>
+  <p id="aviso" style="margin:0 0 12px;color:var(--verde);font-weight:bold"></p>
+
+  <!-- Formulário de cadastro (fica escondido até clicar em Adicionar) -->
+  <div class="caixa" id="areaForm" style="display:none">
+    <h2 id="tituloForm" style="margin:0 0 10px;font-size:18px">Novo produto</h2>
+    <div class="form-grid">
+      <div><label>Nome do produto</label><input id="nome" placeholder="Ex: Cimento CP-II 50kg"></div>
+      <div><label>Categoria</label>
+        <select id="categoria">
+          <option>Cimento e argamassa</option><option>Tijolos e blocos</option>
+          <option>Ferramentas</option><option>Elétrica</option><option>Hidráulica</option>
+          <option>Tintas</option><option>Madeira</option><option>Outros</option>
+        </select></div>
+      <div><label>Unidade</label>
+        <select id="unidade">
+          <option>un</option><option>saco</option><option>kg</option><option>m</option>
+          <option>m²</option><option>litro</option><option>caixa</option><option>lata</option>
+        </select></div>
+      <div><label>Quantidade</label><input id="quantidade" type="number" min="0" value="0"></div>
+      <div><label>Avisar quando chegar em</label><input id="minimo" type="number" min="0" value="5"></div>
+      <div><label>Preço (R$)</label><input id="preco" type="number" min="0" step="0.01" value="0"></div>
+    </div>
+    <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+      <button class="principal" onclick="salvarProduto(false)">Salvar produto</button>
+      <button onclick="salvarProduto(true)">Salvar e adicionar outro</button>
+      <button onclick="fecharFormulario()">Cancelar</button>
+    </div>
+    <p id="mensagem" style="margin:8px 0 0;color:var(--vermelho)"></p>
+  </div>
+
+  <!-- Busca e filtro -->
+  <div class="barra">
+    <input id="busca" placeholder="🔍 Buscar produto..." oninput="desenharLista()">
+    <select id="filtro" onchange="desenharLista()">
+      <option value="todos">Mostrar todos</option>
+      <option value="baixo">Só estoque baixo</option>
+    </select>
+  </div>
+
+  <!-- Lista de produtos -->
+  <div class="tabela-area">
+    <table>
+      <thead>
+        <tr><th>Produto</th><th>Categoria</th><th>Qtd.</th><th>Situação</th><th>Preço</th><th>Entrada / Saída</th><th>Ações</th></tr>
+      </thead>
+      <tbody id="lista"></tbody>
+    </table>
+  </div>
+
+  <!-- Backup dos dados -->
+  <div class="caixa" style="margin-top:16px">
+    <h2 style="margin:0 0 6px;font-size:18px">💾 Backup dos dados</h2>
+    <p class="sub" style="margin:0 0 10px">Salve uma cópia do estoque em um arquivo e guarde no pen drive ou no e-mail. Se os dados sumirem, é só restaurar.</p>
+    <button class="principal" onclick="fazerBackup()">Fazer backup</button>
+    <button onclick="document.getElementById('arquivoBackup').click()">Restaurar backup</button>
+    <input type="file" id="arquivoBackup" accept=".json" style="display:none" onchange="restaurarBackup(event)">
+    <p id="statusBackup" style="margin:10px 0 0"></p>
+  </div>
+  <!-- Direitos autorais -->
+  <p class="rodape">© 2026 Paulo Marcos — Todos os direitos reservados.</p>
+  <p class="rodape" style="margin-top:0">
+    Quer pedir permissão para usar, copiar ou modificar este sistema?
+    <a href="https://mail.google.com/mail/?view=cm&to=paullo.marccos0401@gmail.com" target="_blank">Envie uma mensagem para Paulo Marcos</a>.
+  </p>
+</div>
+
+<script src="java/java.js"></script>
+</body>
+</html>
