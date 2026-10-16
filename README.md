@@ -3,7 +3,6 @@
 Sistema simples de controle de estoque para lojas de construção de pequeno porte.
 Fácil de usar, funciona no computador e no celular e pode ser instalado como aplicativo.
 
-> 🔗 **Demonstração:** *(coloque aqui o link do GitHub Pages depois de publicar)*
 
 ---
 
