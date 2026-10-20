@@ -1,8 +1,0 @@
-Estoque da Loja de Construção
-Copyright (c) 2026 Paulo Marcos. Todos os direitos reservados.
-
-Este software e seu código-fonte são de autoria de Paulo Marcos.
-É proibido copiar, modificar, revender ou redistribuir este software,
-no todo ou em parte, sem autorização por escrito do autor.
-
-Para pedir autorização, envie uma mensagem para: paullo.marccos0401@gmail.com
