@@ -60,16 +60,6 @@ th { font-size: 13px; color: var(--suave); }
 .mov button { padding: 8px 12px; font-weight: bold; }
 .vazio { text-align: center; color: var(--suave); padding: 24px; }
 
-/* Marca d'água: o texto "Paulo Marcos" repetido na diagonal */
-.marca-dagua {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  z-index: 9999;
-  pointer-events: none;   /* não atrapalha os cliques */
-  user-select: none;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='200'><text x='160' y='100' text-anchor='middle' transform='rotate(-25 160 100)' font-family='Arial' font-size='20' font-weight='bold' fill='%23888888' fill-opacity='0.16'>Paulo Marcos</text></svg>");
-}
-
 /* Texto de direitos reservados no fim da página */
 .rodape {
   text-align: center;
