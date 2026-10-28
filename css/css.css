@@ -1,73 +1,200 @@
-/* Estoque da Loja de Construção - © 2026 Paulo Marcos. Todos os direitos reservados. */
 
+/* de inicio tinha variaveis de cores, porem decidir tirar para deixar de facil compreenssao  */
 :root {
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
-  --fundo: #f4f1ec; --card: #ffffff; --texto: #25221e; --suave: #6b655d;
-  --borda: #ddd6cb; --laranja: #e07b00; --laranja-texto: #ffffff;
-  --verde: #1f7a3d; --verde-fundo: #dff3e4;
-  --amarelo: #8a5a00; --amarelo-fundo: #fff0cc;
-  --vermelho: #b3261e; --vermelho-fundo: #fde1de;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --fundo: #1c1a17; --card: #27241f; --texto: #f1ede6; --suave: #a8a094;
-    --borda: #3d3932; --laranja: #f29b2e; --laranja-texto: #1c1a17;
-    --verde: #6fd08c; --verde-fundo: #1f3a28;
-    --amarelo: #f5c76a; --amarelo-fundo: #3d3118;
-    --vermelho: #ff8a80; --vermelho-fundo: #43201d;
-  }
+
+* {
+  box-sizing: border-box;
 }
-:root[data-theme="dark"] {
-  --fundo: #1c1a17; --card: #27241f; --texto: #f1ede6; --suave: #a8a094;
-  --borda: #3d3932; --laranja: #f29b2e; --laranja-texto: #1c1a17;
-  --verde: #6fd08c; --verde-fundo: #1f3a28;
-  --amarelo: #f5c76a; --amarelo-fundo: #3d3118;
-  --vermelho: #ff8a80; --vermelho-fundo: #43201d;
+
+body {
+  margin: 0;
+  background: #f4f1ec;
+  color: #25221e;
+  font-family: system-ui, Arial, sans-serif;
+  font-size: 16px;
 }
-* { box-sizing: border-box; }
-body { margin: 0; background: var(--fundo); color: var(--texto);
-       font-family: system-ui, Arial, sans-serif; font-size: 16px; }
-.pagina { max-width: 1000px; margin: 0 auto; padding: 16px; }
-h1 { font-size: 24px; margin: 0 0 4px; }
-.sub { color: var(--suave); margin: 0 0 16px; }
-.resumo { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 16px; }
-.caixa { background: var(--card); border: 1px solid var(--borda); border-radius: 10px; padding: 14px; }
-.caixa small { color: var(--suave); display: block; }
-.caixa strong { font-size: 24px; }
-.form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
-label { font-size: 14px; color: var(--suave); display: block; margin-bottom: 4px; }
-input, select { width: 100%; padding: 10px; font-size: 16px; border: 1px solid var(--borda);
-                border-radius: 8px; background: var(--fundo); color: var(--texto); }
-button { font-size: 15px; padding: 10px 14px; border-radius: 8px; border: 1px solid var(--borda);
-         background: var(--card); color: var(--texto); cursor: pointer; }
-.principal { background: var(--laranja); color: var(--laranja-texto); border-color: var(--laranja); font-weight: bold; }
-.perigo { color: var(--vermelho); }
-.barra { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 10px; }
-.barra input { flex: 2; min-width: 180px; }
-.barra select { flex: 1; min-width: 150px; }
-.tabela-area { overflow-x: auto; }
-table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--borda); }
-th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--borda); white-space: nowrap; }
-th { font-size: 13px; color: var(--suave); }
-.tag { padding: 3px 10px; border-radius: 20px; font-size: 13px; font-weight: bold; }
-.ok { background: var(--verde-fundo); color: var(--verde); }
-.baixo { background: var(--amarelo-fundo); color: var(--amarelo); }
-.zero { background: var(--vermelho-fundo); color: var(--vermelho); }
-.mov { display: flex; gap: 4px; align-items: center; }
-.mov input { width: 64px; padding: 8px; }
-.mov button { padding: 8px 12px; font-weight: bold; }
-.vazio { text-align: center; color: var(--suave); padding: 24px; }
+
+.pagina {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+h1 {
+  font-size: 24px;
+  margin: 0 0 4px;
+}
+
+.sub {
+  color: #6b655d;
+  margin: 0 0 16px;
+}
+
+.resumo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.caixa {
+  background: #ffffff;
+  border: 1px solid #ddd6cb;
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.caixa small {
+  color: #6b655d;
+  display: block;
+}
+
+.caixa strong {
+  font-size: 24px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+label {
+  font-size: 14px;
+  color: #6b655d;
+  display: block;
+  margin-bottom: 4px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd6cb;
+  border-radius: 8px;
+  background: #f4f1ec;
+  color: #25221e;
+}
+
+button {
+  font-size: 15px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd6cb;
+  background: #ffffff;
+  color: #25221e;
+  cursor: pointer;
+}
+
+.principal {
+  background: #e07b00;
+  color: #ffffff;
+  border-color: #e07b00;
+  font-weight: bold;
+}
+
+.perigo {
+  color: #b3261e;
+}
+
+.barra {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 16px 0 10px;
+}
+
+.barra input {
+  flex: 2;
+  min-width: 180px;
+}
+
+.barra select {
+  flex: 1;
+  min-width: 150px;
+}
+
+.tabela-area {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border: 1px solid #ddd6cb;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd6cb;
+  white-space: nowrap;
+}
+
+th {
+  font-size: 13px;
+  color: #6b655d;
+}
+
+.tag {
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.ok {
+  background: #dff3e4;
+  color: #1f7a3d;
+}
+
+.baixo {
+  background: #fff0cc;
+  color: #8a5a00;
+}
+
+.zero {
+  background: #fde1de;
+  color: #b3261e;
+}
+
+.mov {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.mov input {
+  width: 64px;
+  padding: 8px;
+}
+
+.mov button {
+  padding: 8px 12px;
+  font-weight: bold;
+}
+
+.vazio {
+  text-align: center;
+  color: #6b655d;
+  padding: 24px;
+}
 
 /* Texto de direitos reservados no fim da página */
 .rodape {
   text-align: center;
-  color: var(--suave);
+  color: #6b655d;
   font-size: 13px;
   margin: 24px 0 8px;
 }
 
 .rodape a {
-  color: var(--laranja);
+  color: #e07b00;
 }

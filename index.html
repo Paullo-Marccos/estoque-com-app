@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Estoque da Loja de Construção</title>
-<meta name="author" content="Paulo Marcos">
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#e07b00">
-<link rel="icon" href="icones/icone-192.png">
-<link rel="apple-touch-icon" href="icones/icone-192.png">
-<link rel="stylesheet" href="css/css.css">
-</head>
+      <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <title>Estoque da Loja de Construção</title>
+        <meta name="author" content="Paulo Marcos">
+        <link rel="manifest" href="manifest.json">
+        <meta name="theme-color" content="#e07b00">
+        <link rel="icon" href="icones/icone-192.png">
+        <link rel="apple-touch-icon" href="icones/icone-192.png">
+        <link rel="stylesheet" href="css/css.css">
+
+      </head>
+
 <body>
 <div class="pagina">
   <h1>📦 Estoque da Loja</h1>
   <p class="sub">Cadastre os produtos, dê entrada e saída e veja o que está acabando.</p>
 
-  <!-- Resumo -->
   <div class="resumo">
     <div class="caixa"><small>Produtos</small><strong id="totalProdutos">0</strong></div>
     <div class="caixa"><small>Estoque baixo</small><strong id="totalBaixo">0</strong></div>
@@ -24,37 +26,45 @@
   </div>
 
   <button class="principal" style="width:100%;font-size:18px;padding:14px;margin-bottom:12px" onclick="novoProduto()">➕ Adicionar produto</button>
-  <p id="aviso" style="margin:0 0 12px;color:var(--verde);font-weight:bold"></p>
 
-  <!-- Formulário de cadastro (fica escondido até clicar em Adicionar) -->
+  <p id="aviso" style="margin:0 0 12px;color:#1f7a3d;font-weight:bold"></p>
+
   <div class="caixa" id="areaForm" style="display:none">
     <h2 id="tituloForm" style="margin:0 0 10px;font-size:18px">Novo produto</h2>
+
     <div class="form-grid">
       <div><label>Nome do produto</label><input id="nome" placeholder="Ex: Cimento CP-II 50kg"></div>
+
       <div><label>Categoria</label>
         <select id="categoria">
           <option>Cimento e argamassa</option><option>Tijolos e blocos</option>
           <option>Ferramentas</option><option>Elétrica</option><option>Hidráulica</option>
           <option>Tintas</option><option>Madeira</option><option>Outros</option>
         </select></div>
+
       <div><label>Unidade</label>
         <select id="unidade">
           <option>un</option><option>saco</option><option>kg</option><option>m</option>
           <option>m²</option><option>litro</option><option>caixa</option><option>lata</option>
         </select></div>
+
       <div><label>Quantidade</label><input id="quantidade" type="number" min="0" value="0"></div>
       <div><label>Avisar quando chegar em</label><input id="minimo" type="number" min="0" value="5"></div>
       <div><label>Preço (R$)</label><input id="preco" type="number" min="0" step="0.01" value="0"></div>
     </div>
+
+    <!-- B6.2) Botões do formulário -->
     <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
       <button class="principal" onclick="salvarProduto(false)">Salvar produto</button>
       <button onclick="salvarProduto(true)">Salvar e adicionar outro</button>
       <button onclick="fecharFormulario()">Cancelar</button>
     </div>
-    <p id="mensagem" style="margin:8px 0 0;color:var(--vermelho)"></p>
+
+    <!-- B6.3) Mensagem de erro (ex: esqueceu o nome) -->
+    <p id="mensagem" style="margin:8px 0 0;color:#b3261e"></p>
   </div>
 
-  <!-- Busca e filtro -->
+  <!-- B7) Busca e filtro: toda vez que muda, redesenha a lista -->
   <div class="barra">
     <input id="busca" placeholder="🔍 Buscar produto..." oninput="desenharLista()">
     <select id="filtro" onchange="desenharLista()">
@@ -63,7 +73,7 @@
     </select>
   </div>
 
-  <!-- Lista de produtos -->
+  <!-- B8) Tabela de produtos: o cabeçalho é fixo e as linhas (tbody) são criadas pelo JavaScript -->
   <div class="tabela-area">
     <table>
       <thead>
@@ -73,17 +83,18 @@
     </table>
   </div>
 
-  <!-- Backup dos dados -->
+  <!-- B9) Backup: baixa e restaura os dados em arquivo -->
   <div class="caixa" style="margin-top:16px">
     <h2 style="margin:0 0 6px;font-size:18px">💾 Backup dos dados</h2>
     <p class="sub" style="margin:0 0 10px">Salve uma cópia do estoque em um arquivo e guarde no pen drive ou no e-mail. Se os dados sumirem, é só restaurar.</p>
     <button class="principal" onclick="fazerBackup()">Fazer backup</button>
+
+    <!-- B9.1) O botão "Restaurar" clica no campo de arquivo, que fica escondido -->
     <button onclick="document.getElementById('arquivoBackup').click()">Restaurar backup</button>
     <input type="file" id="arquivoBackup" accept=".json" style="display:none" onchange="restaurarBackup(event)">
+
     <p id="statusBackup" style="margin:10px 0 0"></p>
   </div>
-  <!-- Direitos autorais -->
-  
 </div>
 
 <script src="java/java.js"></script>

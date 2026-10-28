@@ -74,18 +74,3 @@ estoqueZUZU/
 
 ---
 
-## 📄 Licença
-
-© 2026 Paulo Marcos. **Todos os direitos reservados.**
-
-É proibido copiar, modificar, revender ou redistribuir este software sem autorização por escrito do autor.
-Veja o arquivo [LICENSE.txt](LICENSE.txt).
-
-Quer pedir permissão de uso? Envie uma mensagem para
-[paullo.marccos0401@gmail.com](mailto:paullo.marccos0401@gmail.com).
-
----
-
-## 👤 Autor
-
-**Paulo Marcos** — [GitHub: Paullo-Marccos](https://github.com/Paullo-Marccos)
